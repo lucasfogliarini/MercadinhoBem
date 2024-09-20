@@ -1,4 +1,4 @@
-﻿using MercadinhoBem.Domain.Customers;
+﻿using MercadinhoBem.Domain.Products;
 
 namespace MercadinhoBem
 {

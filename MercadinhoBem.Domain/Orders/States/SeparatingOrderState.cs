@@ -20,7 +20,7 @@ namespace MercadinhoBem.Domain.Orders.States
                 {
                     isProductItemMissing = true;
                     var missingQuantity = orderItem.Quantity - product.Quantity;
-                    Notification.Notify(order.CustomerEmail, $"O produto {product.Name} está em falta de {missingQuantity} itens para o pedido {order.Id}");
+                    Notification.Notify($"O produto {product.Name} está em falta de {missingQuantity} itens para o pedido {order.Id}");
                 }
             }
             if (isProductItemMissing)

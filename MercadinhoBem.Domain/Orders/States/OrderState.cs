@@ -18,11 +18,11 @@ namespace MercadinhoBem.Domain.Orders.States
         public void Refund(Order order)
         {
             Thread.Sleep(1000);
-            Notification.Notify(order.CustomerEmail, $"O pedido '{order.Id}' foi estornado com sucesso.");
+            Notification.Notify($"O pedido '{order.Id}' foi estornado com sucesso.");
         }
         public void NotifyStateChanged(Order order, string state)
         {
-            Notification.Notify(order.CustomerEmail, $"O pedido '{order.Id}' alterou para '{state}'");
+            Notification.Notify($"O pedido '{order.Id}' alterou para '{state}'");
         }
     }
 }

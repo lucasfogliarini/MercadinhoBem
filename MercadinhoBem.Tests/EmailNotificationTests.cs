@@ -1,18 +1,18 @@
-using MercadinhoBem.Notification;
-using System.Net.Mail;
-using System.Net;
+using MercadinhoBem.Domain.Notification;
 
 namespace MercadinhoBem.Tests
 {
     public class EmailNotificationTests
     {
         [Fact]
-        public void Notify()
+        public void Notify_Without_To()
         {
-            var customerEmail = "customer@mail.com";
-            var emailNotification = new EmailNotification(customerEmail);
+            var emailNotification = new EmailNotification();
 
-            //emailNotification.Notify("");
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                emailNotification.Notify("message");
+            });
         }
     }
 }

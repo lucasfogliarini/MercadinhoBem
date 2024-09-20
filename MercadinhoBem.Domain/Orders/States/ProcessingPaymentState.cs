@@ -22,7 +22,7 @@ namespace MercadinhoBem.Domain.Orders.States
             }
             else
             {
-                Notification.Notify(order.CustomerEmail, $"O pedido '{order.Id}' será cancelado, pois houve uma falha ao realizar o pagamento.");
+                Notification.Notify($"O pedido '{order.Id}' será cancelado, pois houve uma falha ao realizar o pagamento.");
                 Cancel(order);
             }
         }

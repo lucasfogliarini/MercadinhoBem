@@ -58,7 +58,7 @@ namespace MercadinhoBem.Tests
             order.Cancel();
 
             Assert.True(order.State is CancelededState);
-            _notification.Received(1).Notify(Arg.Any<string>());
+            _notification.Received(2).Notify(Arg.Any<string>());
         }
 
         public Product GetProduct(int id)

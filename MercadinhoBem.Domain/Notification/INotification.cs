@@ -2,6 +2,6 @@
 {
     public interface INotification
     {
-        void Notify(string to, string message);
+        void Notify(string message);
     }
 }

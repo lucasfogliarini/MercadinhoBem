@@ -31,7 +31,7 @@ namespace MercadinhoBem.Tests
                 State = new OrderCompletedState(_notification)
             };
 
-            order.Cancel();
+            Assert.Throws<Exception>(order.Cancel);
 
             Assert.True(order.State is OrderCompletedState);
             _notification.DidNotReceive().Notify(Arg.Any<string>());

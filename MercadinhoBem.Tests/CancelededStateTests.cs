@@ -22,5 +22,19 @@ namespace MercadinhoBem.Tests
             Assert.True(order.State is CancelededState);
             _notification.Received(1).Notify(Arg.Any<string>());
         }
+
+        [Fact]
+        public void Cancel()
+        {
+            Order order = new(_notification, [])
+            {
+                State = new CancelededState(_notification)
+            };
+
+            Assert.Throws<Exception>(order.Cancel);
+
+            Assert.True(order.State is CancelededState);
+            _notification.DidNotReceive().Notify(Arg.Any<string>());
+        }
     }
 }

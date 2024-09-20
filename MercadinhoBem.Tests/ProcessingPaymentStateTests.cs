@@ -18,7 +18,7 @@ namespace MercadinhoBem.Tests
                 State = new ProcessingPaymentState(_notification)
             };
 
-            order.Next();
+            Assert.Throws<ArgumentException>(order.Next);
 
             Assert.True(order.State is ProcessingPaymentState);
             _notification.Received(1).Notify(Arg.Any<string>());
@@ -55,7 +55,7 @@ namespace MercadinhoBem.Tests
             order.Next();
 
             Assert.True(order.State is CancelededState);
-            _notification.Received(2).Notify(Arg.Any<string>());
+            _notification.Received(3).Notify(Arg.Any<string>());
         }
     }
 }
