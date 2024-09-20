@@ -15,7 +15,7 @@ namespace MercadinhoBem.Domain.Orders.States
 
             if (string.IsNullOrWhiteSpace(order.CustomerEmail))
             {
-                throw new Exception("O pedido precisa de um cliente para enviar notificações.");
+                throw new Exception("O pedido precisa de um cliente para processar o pagamento.");
             }
             order.State = new ProcessingPaymentState(Notification);
         }

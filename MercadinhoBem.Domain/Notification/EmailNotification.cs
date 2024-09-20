@@ -1,8 +1,10 @@
 ﻿using System.Net.Mail;
 using System.Net;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MercadinhoBem.Domain.Notification
 {
+    [ExcludeFromCodeCoverage]
     public class EmailNotification : INotification
     {
         public EmailNotification()
@@ -15,9 +17,6 @@ namespace MercadinhoBem.Domain.Notification
         const string _systemEmail = "noreply@mercadinhobem.com";
         public void Notify(string message)
         {
-            if(To == null)
-                throw new ArgumentNullException("Precisa configurar um destinatário para enviar o e-mail.");
-
             _smtpClient.Send(_systemEmail, To, message, message);
         }
 

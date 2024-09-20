@@ -11,6 +11,9 @@ namespace MercadinhoBem.Domain.Orders.States
         public abstract void Next(Order order);
         public virtual void Cancel(Order order)
         {
+            if (Notification.To == null)
+                throw new Exception("Precisa de um destinatário para enviar a notificação de cancelamento.");
+
             order.State = new CancelededState(Notification);
             order.State.Next(order);
         }

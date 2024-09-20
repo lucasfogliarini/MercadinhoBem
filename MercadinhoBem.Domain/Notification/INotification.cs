@@ -2,6 +2,7 @@
 {
     public interface INotification
     {
+        public string? To { get; set; }
         void Notify(string message);
     }
 }

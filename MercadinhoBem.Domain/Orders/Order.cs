@@ -13,13 +13,11 @@ namespace MercadinhoBem.Domain.Orders
         public DateTime Data { get; init; } = DateTime.Now;
         public List<OrderItem> Items { get; init; } = [];
         public decimal TotalAmount { get; set; }
-
-        public string CustomerEmail { get; set; }
+        public string? CustomerEmail { get { return State.Notification.To; } set { State.Notification.To = value; } }
         public string StateDescription { get { return State.Description;  } }
         public string? PaymentDescription {  get { return PaymentStrategy?.Description; } }
         public OrderState State { get; set; } = new AwaitingProcessingState(notification);
 
-        private readonly INotification _notification = notification;
         private IDiscountStrategy[] _discounts = discounts;
         public PaymentStrategy PaymentStrategy { get; set; }
 
