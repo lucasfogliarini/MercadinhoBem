@@ -20,16 +20,16 @@ namespace MercadinhoBem.Domain.Payment
 
                 if (chance == 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Falha ao realizar o pagamento na tentantiva {attempts}, tentando novamente ...");
+                    Console.ResetColor();
+                }
+                else
+                {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Pagamento realizado com sucesso");
                     Console.ResetColor();
                     return true;
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Falha ao realizar o pagamento na tentantiva {attempts}, tentando novamente ...");
-                    Console.ResetColor();
                 }
             }
 

@@ -3,6 +3,7 @@ using MercadinhoBem.Domain.Payment;
 using MercadinhoBem.Domain.Products;
 using MercadinhoBem.Domain.Customers;
 using System.ComponentModel;
+using MercadinhoBem.Domain.Orders.States;
 
 namespace MercadinhoBem
 {
@@ -37,6 +38,9 @@ namespace MercadinhoBem
 
         private void dgvOrderItems_DoubleClick(object sender, EventArgs e)
         {
+            if (Order.State is not AwaitingProcessingState)
+                return;
+                
             new FormProducts(this).Show();
         }
 
