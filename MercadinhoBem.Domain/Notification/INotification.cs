@@ -3,6 +3,6 @@
     public interface INotification
     {
         public string? To { get; set; }
-        void Notify(string message);
+        void Notify(string message, string? subject = null);
     }
 }

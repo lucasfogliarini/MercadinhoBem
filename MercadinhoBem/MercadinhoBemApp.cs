@@ -7,7 +7,8 @@ namespace MercadinhoBem
     public class MercadinhoBemApp
     {
         public List<Order> Orders { get; init; } = [];
-        public EmailNotification EmailNotification { get; init; } = new();
+        public EmailNotification CustomerEmailNotification { get; init; } = new();
+        public EmailNotification OwnerEmailNotification { get; init; } = new("owner@mercadinhobem.com");
         public IDiscountStrategy[] Discounts { get; init; } = 
         {
             new QuantityDiscountStrategy(3, 10),

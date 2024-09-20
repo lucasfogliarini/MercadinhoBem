@@ -11,13 +11,18 @@ namespace MercadinhoBem.Domain.Notification
         {
             _smtpClient = SmtpClient();
         }
+        public EmailNotification(string to)
+        {
+            To = to;
+            _smtpClient = SmtpClient();
+        }
         public string? To { get; set; }
 
         readonly SmtpClient _smtpClient;
         const string _systemEmail = "noreply@mercadinhobem.com";
-        public void Notify(string message)
+        public void Notify(string message, string? subject = "Notificação Mercadinho Bem")
         {
-            _smtpClient.Send(_systemEmail, To, message, message);
+            _smtpClient.Send(_systemEmail, To, subject, message);
         }
 
         private SmtpClient SmtpClient()

@@ -17,7 +17,7 @@ namespace MercadinhoBem
 
         private void menuCriarPedido_Click(object sender, EventArgs e)
         {
-            var order = new Order(MercadinhoBemApp.EmailNotification, MercadinhoBemApp.Discounts);
+            var order = new Order(MercadinhoBemApp.CustomerEmailNotification, MercadinhoBemApp.Discounts);
             MercadinhoBemApp.Orders.Add(order);
 
             ShowFormOrder(order);
