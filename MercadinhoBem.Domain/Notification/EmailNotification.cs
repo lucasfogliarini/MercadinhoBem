@@ -20,7 +20,7 @@ namespace MercadinhoBem.Domain.Notification
 
         readonly SmtpClient _smtpClient;
         const string _systemEmail = "noreply@mercadinhobem.com";
-        public void Notify(string message, string? subject = "Notificação Mercadinho Bem")
+        public void Notify(string message, string subject = "Notificação Mercadinho Bem")
         {
             _smtpClient.Send(_systemEmail, To, subject, message);
         }
@@ -29,8 +29,8 @@ namespace MercadinhoBem.Domain.Notification
         {
             var smtpClient = new SmtpClient("sandbox.smtp.mailtrap.io", 2525)
             {
-                //inboxes: https://mailtrap.io/inboxes/3148502/messages/
-                Credentials = new NetworkCredential("9d6c2d19c30298", "fe181b2f1c69a3"),
+                //inboxes: https://mailtrap.io/inboxes/3154321/messages/
+                Credentials = new NetworkCredential("b1f2b0eb37a95e", "29676a58f85631"),
                 EnableSsl = true,
             };
             return smtpClient;
